@@ -1,23 +1,40 @@
-import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+  updateDoc,
+  doc,
+  orderBy
+} from "firebase/firestore";
 import { db } from "../firebase";
 
-export const addTodo = async (userId, text) => {
-  await addDoc(collection(db, "todos"), {
-    userId,
-    text,
-    createdAt: new Date()
-  });
+const todosRef = collection(db, "todos");
+
+export const addTodo = async (todo) => {
+  await addDoc(todosRef, todo);
 };
 
-export const getTodos = async (userId) => {
+export const getUserTodos = async (uid) => {
   const q = query(
-    collection(db, "todos"),
-    where("userId", "==", userId)
+    todosRef,
+    where("uid", "==", uid),
+    orderBy("createdAt", "desc")
   );
 
-  const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map(doc => ({
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map(doc => ({
     id: doc.id,
     ...doc.data()
   }));
+};
+
+export const deleteTodo = async (id) => {
+  await deleteDoc(doc(db, "todos", id));
+};
+
+export const updateTodo = async (id, data) => {
+  await updateDoc(doc(db, "todos", id), data);
 };

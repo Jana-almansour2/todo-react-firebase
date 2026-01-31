@@ -1,80 +1,81 @@
-.todo-container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-.input-section {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-input[type="text"] {
-  padding: 10px;
-  width: 70%;
-  border: 1px solid #ccc;
-  border-radius: 8px 0 0 8px;
-  outline: none;
-}
-
-.add-btn {
-  padding: 10px 20px;
-  border: none;
-  background-color: #4caf50;
-  color: white;
-  cursor: pointer;
-  border-radius: 0 8px 8px 0;
+.todo {
+  min-height: 100vh;
+  padding: 30px;
+  background: #f4f4f4;
+  color: #222;
   transition: 0.3s;
+  max-width: 600px;
+  margin: auto;
 }
 
-.add-btn:hover {
-  background-color: #45a049;
+.todo.dark {
+  background: #121212;
+  color: #eee;
 }
 
-.todo-list {
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-box {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+input, select, button {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
   list-style: none;
   padding: 0;
 }
 
-.todo-item {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f7f7f7;
-  padding: 10px;
+li {
+  background: rgba(255,255,255,0.8);
+  padding: 12px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   border-radius: 8px;
 }
 
-.delete-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
+.todo.dark li {
+  background: #1e1e1e;
+}
+
+li.done p {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.priority {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.priority.high { background: red; }
+.priority.medium { background: orange; }
+.priority.low { background: green; }
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+p {
+  margin: 0;
   cursor: pointer;
-  border-radius: 5px;
-  padding: 5px 10px;
-  transition: 0.3s;
-}
-
-.delete-btn:hover {
-  background-color: #d32f2f;
-}
-
-.logout-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #555;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.logout-btn:hover {
-  background-color: #333;
 }
