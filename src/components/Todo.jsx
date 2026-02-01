@@ -26,6 +26,7 @@ const Todo = ({ user }) => {
     loadTodos();
   }, []);
 
+
   const handleAdd = async () => {
     if (!text.trim()) return;
 
