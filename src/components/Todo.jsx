@@ -18,14 +18,12 @@ const Todo = ({ user }) => {
   const loadTodos = async () => {
     const data = await getUserTodos(user.uid);
 
-    // المنجز تحت
     const sorted = data.sort((a, b) => a.completed - b.completed);
     setTodos(sorted);
   };
 
   useEffect(() => {
     loadTodos();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleAdd = async () => {
