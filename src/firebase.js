@@ -1,6 +1,8 @@
+// src/firebase.js   ← كامل
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { setPersistence, browserSessionPersistence } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -12,9 +14,15 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const provider = new GoogleAuthProvider(); 
-export const db = getFirestore(app);
 
+const auth = getAuth(app);
+
+setPersistence(auth, browserSessionPersistence)
+  .then(() => console.log("Auth persistence → SESSION mode"))
+  .catch(err => console.error("Persistence error:", err));
+
+const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
+
+export { auth, provider, db };
 export default app;
-

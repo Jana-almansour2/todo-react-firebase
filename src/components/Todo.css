@@ -3,12 +3,12 @@
   padding: 30px;
   background: #f4f4f4;
   color: #222;
-  transition: 0.3s;
+  transition: all 0.3s;
   max-width: 600px;
   margin: auto;
 }
 
-.todo.dark {
+.dark .todo {
   background: #121212;
   color: #eee;
 }
@@ -17,6 +17,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .add-box {
@@ -25,10 +26,21 @@ header {
   margin: 20px 0;
 }
 
-input, select, button {
+input,
+select,
+button {
   padding: 10px;
   border-radius: 6px;
   border: none;
+  font-size: 16px;
+}
+
+.dark input,
+.dark select,
+.dark button {
+  background: #2d2d2d;
+  color: #eee;
+  border: 1px solid #444;
 }
 
 button {
@@ -41,7 +53,7 @@ ul {
 }
 
 li {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
   padding: 12px;
   margin-bottom: 10px;
   display: flex;
@@ -50,7 +62,7 @@ li {
   border-radius: 8px;
 }
 
-.todo.dark li {
+.dark li {
   background: #1e1e1e;
 }
 
@@ -78,4 +90,5 @@ li.done p {
 p {
   margin: 0;
   cursor: pointer;
+  flex: 1;
 }

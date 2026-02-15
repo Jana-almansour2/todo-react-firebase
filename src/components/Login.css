@@ -44,3 +44,23 @@
   width: 22px;
   height: 22px;
 }
+
+/* ──────────────────────────────────────────────── */
+/*               Dark Mode Support                  */
+/* ──────────────────────────────────────────────── */
+
+.dark .login-container {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #f0f0f0;
+}
+
+.dark .google-btn {
+  background: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.dark .google-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
